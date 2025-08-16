@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Censo Población - El Progreso</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-chart-bar"></i> Censo Población 2019 - El Progreso</h1>
+            <p>Datos oficiales del XII Censo Nacional de Población y VII de Vivienda</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="municipio-selector">
+            <label for="municipio">Seleccione un municipio:</label>
+            <select id="municipio">
+                <option value="999">El Progreso (Departamento)</option>
+                <option value="201">Guastatoya</option>
+                <option value="202">Morazán</option>
+                <option value="203">San Agustín Acasaguastlán</option>
+                <option value="204">San Cristóbal Acasaguastlán</option>
+                <option value="205">El Jícaro</option>
+                <option value="206">Sansare</option>
+                <option value="207">Sanarate</option>
+                <option value="208">San Antonio La Paz</option>
+            </select>
+            <button id="cargarDatos">Cargar Datos</button>
+        </section>
+
+        <section class="datos-generales">
+            <h2><i class="fas fa-info-circle"></i> Información General</h2>
+            <div class="grid-container">
+                <div class="card">
+                    <h3>Población Total</h3>
+                    <p id="pob-total">-</p>
+                </div>
+                <div class="card">
+                    <h3>Extensión Territorial (km²)</h3>
+                    <p id="ext-territorial">-</p>
+                </div>
+                <div class="card">
+                    <h3>Capital Departamental</h3>
+                    <p id="capital">-</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="datos-poblacion">
+            <h2><i class="fas fa-users"></i> Distribución Poblacional</h2>
+            <div class="grid-container">
+                <!-- Único gráfico que mantenemos (distribución por sexo) -->
+                <div class="card">
+                    <h3>Por Sexo</h3>
+                    <div class="chart-container">
+                        <canvas id="sexo-chart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Tabla para distribución por área geográfica -->
+                <div class="card">
+                    <h3>Por Área Geográfica</h3>
+                    <table class="distribucion-table">
+                        <thead>
+                            <tr>
+                                <th>Área</th>
+                                <th>Población</th>
+                                <th>Porcentaje</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Urbana</td>
+                                <td id="pob-urbana">-</td>
+                                <td id="porc-urbana">-</td>
+                            </tr>
+                            <tr>
+                                <td>Rural</td>
+                                <td id="pob-rural">-</td>
+                                <td id="porc-rural">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Tabla para distribución por edad -->
+                <div class="card">
+                    <h3>Por Grupos de Edad</h3>
+                    <table class="distribucion-table">
+                        <thead>
+                            <tr>
+                                <th>Grupo</th>
+                                <th>Población</th>
+                                <th>Porcentaje</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0-14 años</td>
+                                <td id="pob-0-14">-</td>
+                                <td id="porc-0-14">-</td>
+                            </tr>
+                            <tr>
+                                <td>15-64 años</td>
+                                <td id="pob-15-64">-</td>
+                                <td id="porc-15-64">-</td>
+                            </tr>
+                            <tr>
+                                <td>65+ años</td>
+                                <td id="pob-65">-</td>
+                                <td id="porc-65">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="datos-detallados">
+            <h2><i class="fas fa-chart-pie"></i> Datos Detallados</h2>
+            <div class="grid-container">
+                <div class="card">
+                    <h3>Pueblos Originarios</h3>
+                    <table id="pueblos-table">
+                        <thead>
+                            <tr>
+                                <th>Pueblo</th>
+                                <th>Población</th>
+                                <th>Porcentaje</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Datos se llenarán con JS -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card">
+                    <h3>Indicadores Sociales</h3>
+                    <table id="indicadores-table">
+                        <thead>
+                            <tr>
+                                <th>Indicador</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Datos se llenarán con JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Datos obtenidos de la API del XII Censo Nacional de Población y VII de Vivienda - Guatemala 2019</p>
+            <p>Daniel Rivera Hernandez - 1890-22-12732</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/scrip.js"></script>
+</body>
+</html>
